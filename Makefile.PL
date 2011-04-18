@@ -24,7 +24,7 @@ my %WriteMakefileArgs = (
     'Authen::Simple::Adapter' => '0',
     'Params::Validate' => '0'
   },
-  'VERSION' => '0.001',
+  'VERSION' => '0.002',
   'test' => {
     'TESTS' => ''
   }

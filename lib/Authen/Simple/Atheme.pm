@@ -7,7 +7,7 @@ use base 'Authen::Simple::Adapter';
 use Atheme;
 use Params::Validate qw[];
 
-our $VERSION = 0.1;
+our $VERSION = 0.2;
 
 __PACKAGE__->options({
     host => {
@@ -38,6 +38,20 @@ sub check {
     }
     $self->log->debug( qq/Successfully authenticated user '$username'./ ) if $self->log;
     return 1;
+}
+
+sub register {
+    my ( $self, $username, $password, $email ) = @_;
+    my $atheme = Atheme->new( url => 'http://'.$self->host.':'.$self->port.'/xmlrpc');
+    my $result = $atheme->call_svs({
+            authcookie => '',
+            nick => '',
+            address => '0.0.0.0',
+            svs => 'NickServ',
+            cmd => 'REGISTER',
+            params => [ $username, $password, $email ]
+        });
+    return $result;
 }
 1;
 
