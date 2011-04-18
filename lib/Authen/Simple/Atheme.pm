@@ -7,7 +7,7 @@ use base 'Authen::Simple::Adapter';
 use Atheme;
 use Params::Validate qw[];
 
-our $VERSION = 0.2;
+our $VERSION = 0.3;
 
 __PACKAGE__->options({
     host => {
@@ -106,10 +106,15 @@ Any object that supports C<debug>, C<info>, C<error>, and C<warn>.
 
 =item authenticate
 
-This method takes two parameters, a username and a password (In that order.)
+This method takes two parameters, a username and a password (In that order).
 Returns true on success and false on failure.
 
 =back
+
+=item register
+
+This method takes three parameters, a username, a password, and an email address (In that order).
+Returns the XMLRPC hash given to it by Atheme.
 
 =head1 SEE ALSO
 

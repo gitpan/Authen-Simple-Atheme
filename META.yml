@@ -16,4 +16,4 @@ requires:
   Atheme: 0
   Authen::Simple::Adapter: 0
   Params::Validate: 0
-version: 0.002
+version: 0.003
